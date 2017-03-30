@@ -13,6 +13,7 @@ import android.text.TextUtils;
 import com.core.base.utils.ApkInfoUtil;
 import com.core.base.utils.ApkInstallUtil;
 import com.core.base.utils.PL;
+import com.core.base.utils.ToastUtils;
 
 import java.io.File;
 import java.io.IOException;
@@ -85,6 +86,8 @@ public class MainActivity extends Activity {
 
             ApkInstallUtil.installApk(this, renameApk);
 
+        }else{
+            ToastUtils.toast(this,"出現錯誤");
         }
     }
 
