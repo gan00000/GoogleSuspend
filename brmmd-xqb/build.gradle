@@ -1,0 +1,58 @@
+apply plugin: 'com.android.application'
+
+android {
+    signingConfigs {
+        brmmdsign {
+            keyAlias 'brmmd'
+            keyPassword 'brmmd666888'
+            storeFile file('../keystore/brmmd-keystore.jks')
+            storePassword 'brmmd666888'
+        }
+
+    }
+    compileSdkVersion 25
+    buildToolsVersion "25.0.2"
+    defaultConfig {
+        applicationId "com.be.willa"
+        minSdkVersion 11
+        targetSdkVersion 22
+        versionCode 20001
+        versionName "2.0.1"
+        signingConfig signingConfigs.brmmdsign
+    }
+    android.applicationVariants.all { variant ->
+        variant.outputs.each { output ->
+            //定义一个文件
+            def outputFile = output.outputFile
+            //定义存储apk的位置和文件名，这里文件名格式定义为 [applicationId_版本号_ReleaseTime_apk]
+            if (outputFile != null && outputFile.name.contains("release") && outputFile.name.endsWith('.apk')) {
+
+                def fileName = "${variant.applicationId}_${variant.versionCode}_${variant.versionName}_${getReleaseTime()}_release.apk"
+                output.outputFile = new File(outputFile.parent, fileName)
+            } else if (outputFile != null && outputFile.name.contains("debug") && outputFile.name.endsWith('.apk')) {
+
+                def fileName = "${variant.applicationId}_${variant.versionCode}_${variant.versionName}_${getReleaseTime()}_debug.apk"
+                output.outputFile = new File(outputFile.parent, fileName)
+            }
+        }
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.brmmdsign
+        }
+    }
+    productFlavors {
+    }
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    compile 'com.android.support:appcompat-v7:25.0.0'
+    compile 'com.android.support.constraint:constraint-layout:1.0.2'
+}
+
+def getReleaseTime() {
+    return new Date().format("yyyy-MM-dd-HH-mm", TimeZone.getDefault())
+}
