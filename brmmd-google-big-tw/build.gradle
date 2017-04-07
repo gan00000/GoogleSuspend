@@ -1,0 +1,82 @@
+apply plugin: 'com.android.application'
+
+android {
+
+    lintOptions {
+        checkReleaseBuilds false
+        // Or, if you prefer, you can continue to check for errors in release builds,
+        // but continue the build even when errors are found:
+        abortOnError false
+    }
+
+    signingConfigs {
+        brmmdsign {
+            keyAlias 'brmmd'
+            keyPassword 'brmmd666888'
+            storeFile file('../keystore/brmmd-keystore.jks')
+            storePassword 'brmmd666888'
+        }
+
+    }
+
+    compileSdkVersion 25
+    buildToolsVersion "25.0.2"
+
+    defaultConfig {
+        applicationId "com.be.willa"
+        minSdkVersion 11
+        targetSdkVersion 22
+    }
+
+    android.applicationVariants.all { variant ->
+        variant.outputs.each { output ->
+            //定义一个文件
+            def outputFile = output.outputFile
+            //定义存储apk的位置和文件名，这里文件名格式定义为 [applicationId_版本号_ReleaseTime_apk]
+            if (outputFile != null && outputFile.name.contains("release") && outputFile.name.endsWith('.apk')) {
+
+                def fileName = "${variant.applicationId}_${variant.versionCode}_${variant.versionName}_${getReleaseTime()}_release.apk"
+                output.outputFile = new File(outputFile.parent, fileName)
+            }else  if (outputFile != null && outputFile.name.contains("debug") && outputFile.name.endsWith('.apk')) {
+
+                def fileName = "${variant.applicationId}_${variant.versionCode}_${variant.versionName}_${getReleaseTime()}_debug.apk"
+                output.outputFile = new File(outputFile.parent, fileName)
+            }
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
+            signingConfig signingConfigs.brmmdsign
+        }
+        debug {
+            signingConfig signingConfigs.brmmdsign
+        }
+    }
+
+    productFlavors {
+
+        mtestserver {
+            minSdkVersion 11
+            applicationId 'com.star.btmmd'
+            signingConfig signingConfigs.brmmdsign
+            targetSdkVersion 22
+            versionCode 20001
+            versionName '2.0.1'
+        }
+
+    }
+}
+
+dependencies {
+    compile project(':starpySdk')
+    compile files('libs/commons-lang-2.6.jar')
+    compile files('libs/org.apache.http.legacy.jar')
+    compile files('libs/unity-classes.jar')
+}
+
+def getReleaseTime() {
+    return new Date().format("yyyy-MM-dd-HH-mm", TimeZone.getDefault())
+}

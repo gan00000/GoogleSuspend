@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="queding">确定</string>
+    <string name="quxiao">取消</string>
+    <string name="Shouhuzhemen">別惹萌萌噠</string>
+     <string name="TuiSong_title0">领取体力通知</string>
+    <string name="TuiSong_content0">又到了每天补充体力的时刻啦！纳迪克王国的守护者们都在等着你哦~</string>
+    <string name="TuiSong_title1">竞技场每日奖励发放通知</string>
+    <string name="TuiSong_content1">亲爱的守护者，您还没有领取今天的竞技场排名奖励，记得来领取哦~</string>
+    <string name="TuiSong_title2">活动（阵营战）通知</string>
+    <string name="TuiSong_content2">兰斯大陆最热血的阵营战已开启！守护者们，快来加入阵营！用你们的信念与勇气征服这片大陆吧！</string>
+    <string name="TuiSong_title3">宝箱免费通知</string>
+    <string name="TuiSong_content3">有神秘的宝箱奖励正在等着您哦，赶快来开启免费宝箱吧！</string>
+     <string name="TuiSong_title4">体力回满通知</string>
+    <string name="TuiSong_content4">亲爱的守护者大大，您的体力已经完全恢复，快来和我一起征战兰斯大陆呀~</string>
+    <string name="TuiSong_title5">历练回满通知</string>
+    <string name="TuiSong_content5">守护者大大，有一只邪恶之手正在抢夺您的宝物碎片，快点去阻止他吧！</string>
+   
+    <string name="paysucce">支付成功~</string>
+    <string name="paycal">取消支付</string>
+    <string name="payfaill">支付失败</string>
+</resources>
