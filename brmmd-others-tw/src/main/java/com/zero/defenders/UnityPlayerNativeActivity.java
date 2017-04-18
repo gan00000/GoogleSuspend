@@ -1,5 +1,45 @@
 package com.zero.defenders;
 
+import android.app.Activity;
+import android.app.AlertDialog;
+import android.app.NativeActivity;
+import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager.NameNotFoundException;
+import android.content.res.Configuration;
+import android.graphics.PixelFormat;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
+import android.net.NetworkInfo.State;
+import android.net.wifi.WifiManager;
+import android.os.Bundle;
+import android.os.Environment;
+import android.os.Handler;
+import android.os.Message;
+import android.os.StatFs;
+import android.telephony.TelephonyManager;
+import android.text.format.Formatter;
+import android.util.DisplayMetrics;
+import android.util.Log;
+import android.view.Gravity;
+import android.view.KeyEvent;
+import android.view.MotionEvent;
+import android.view.Window;
+import android.view.WindowManager;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
+import android.widget.FrameLayout;
+import android.widget.LinearLayout;
+
+import com.core.base.utils.PL;
+import com.unity3d.player.UnityPlayer;
+import com.zero.channelsdk.BaseMain;
+import com.zero.channelsdk.GameMain;
+import com.zero.channelsdk.TalkingDataInterface;
+import com.zero.service.SimpleService;
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileFilter;
@@ -15,53 +55,6 @@ import java.security.NoSuchAlgorithmException;
 import java.util.regex.Pattern;
 
 //import com.testin.agent.TestinAgent;
-import com.core.base.utils.PL;
-import com.unity3d.player.*;
-
-import android.app.Activity;
-
-import android.os.Environment;
-import android.os.StatFs;
-import android.app.AlertDialog;
-import android.app.NativeActivity;
-import android.content.Context;
-import android.content.DialogInterface;
-import android.content.Intent;
-import android.content.pm.ApplicationInfo;
-import android.content.pm.PackageInfo;
-import android.content.pm.PackageManager;
-import android.content.pm.PackageManager.NameNotFoundException;
-import android.content.res.Configuration;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.PixelFormat;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
-import android.net.NetworkInfo.State;
-import android.net.wifi.WifiManager;
-import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
-import android.telephony.TelephonyManager;
-import android.text.format.Formatter;
-import android.text.format.Time;
-import android.util.DisplayMetrics;
-import android.util.Log;
-import android.view.Gravity;
-import android.view.KeyEvent;
-import android.view.MotionEvent;
-import android.view.Window;
-import android.view.WindowManager;
-import android.webkit.WebView;
-import android.webkit.WebViewClient;
-import android.widget.FrameLayout;
-import android.widget.LinearLayout;
-import android.widget.Toast;
-import com.zero.channelsdk.BaseMain;
-import com.zero.channelsdk.GameMain;
-import com.zero.service.SimpleService;
-import org.json.JSONObject;
-import com.zero.channelsdk.TalkingDataInterface;
 public class UnityPlayerNativeActivity extends NativeActivity {
 	protected UnityPlayer mUnityPlayer; // don't change the name of this
 	// variable; referenced from native code
@@ -522,7 +515,7 @@ public class UnityPlayerNativeActivity extends NativeActivity {
 		}
 		PL.i("mUnityPlayer.resume()");
 		mUnityPlayer.resume();
-
+		mUnityPlayer.windowFocusChanged(true);
 	}
 
 	// Stop
@@ -550,6 +543,7 @@ public class UnityPlayerNativeActivity extends NativeActivity {
 	@Override
 	public void onWindowFocusChanged(boolean hasFocus) {
 		super.onWindowFocusChanged(hasFocus);
+		PL.i("mUnityPlayer windowFocusChanged:" + hasFocus);
 		mUnityPlayer.windowFocusChanged(hasFocus);
 	}
 

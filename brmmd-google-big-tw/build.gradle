@@ -58,15 +58,6 @@ android {
 
     productFlavors {
 
-        mtestserver {
-            minSdkVersion 11
-            applicationId 'com.star.btmmd'
-            signingConfig signingConfigs.brmmdsign
-            targetSdkVersion 22
-            versionCode 20001
-            versionName '2.0.1'
-        }
-
     }
 }
 

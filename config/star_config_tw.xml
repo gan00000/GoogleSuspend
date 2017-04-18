@@ -8,17 +8,6 @@
     <!-- fb配置end -->
 
 
-    <string name="star_py_login_pre_url">http://login.starb168.com/</string>
-    <string name="star_py_login_spa_url">http://login.starb168.com/</string>
-
-    <string name="star_py_pay_pre_url">http://pay.starb168.com/</string>
-    <string name="star_py_pay_spa_url">http://pay.starb168.com/</string>
-
-    <!--平台CND的主域名：autocdn-palt.starb168.com-->
-    <!--备用域名：autocdn-paltsl.starb168.com-->
-    <string name="star_py_cdn_pre_url">http://autocdn-palt.starb168.com/</string>
-    <string name="star_py_cdn_spa_url">http://autocdn-paltsl.starb168.com/</string>
-
     <string name="star_game_code">brmmd</string>
     <!--是否侵权 true为侵权，默认为非侵权-->
     <string name="star_infringement"></string>
@@ -27,15 +16,8 @@
     <!--语言默认繁体zh-TW，用来设置UI界面语言，提示等-->
     <!--<string name="star_game_language">zh-TW</string>-->
 
-
-    <string name="star_pay_third_method">dynamic_change</string>
-
     <!--adword ads  String conversionId, String label  "858913995", "lniQCKDX5G4Qy_nHmQM"-->
-    <string name="star_ads_adword_conversionId">858913995</string>
-    <string name="star_ads_adword_label">lniQCKDX5G4Qy_nHmQM</string>
-
-    <!--<data android:scheme="starpy" android:host="@string/star_game_code"/>-->
-    <!--<scheme>://<host>:<port>[<path>|<pathPrefix>|<pathPattern>]-->
-    <string name="star_android_scheme">starpy</string>
+    <string name="star_ads_adword_conversionId"></string>
+    <string name="star_ads_adword_label"></string>
 
 </resources>
