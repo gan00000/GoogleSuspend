@@ -1,4 +1,5 @@
 <resources>
+<!--
 
     <string name="py_account_login">账号登入</string>
     <string name="py_account">账号:</string>
@@ -30,5 +31,6 @@
     <string name="py_login_mac_saveimage_tips">你的账号密码已经保存到相册中</string>
     <string name="py_login_autologin_tips">账号 %1$s 正在登录</string>
     <string name="py_login_autologin_fblogining_tips">facebook账号正在登录</string>
+-->
 
 </resources>

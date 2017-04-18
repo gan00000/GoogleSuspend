@@ -57,7 +57,14 @@ android {
     }
 
     productFlavors {
-
+        brmmd_cwgl {
+            applicationId 'com.cwgl.brmmd'
+            signingConfig signingConfigs.brmmdsign
+            minSdkVersion 11
+            targetSdkVersion 22
+            versionCode 20001
+            versionName '2.0.1'
+        }
     }
 }
 
