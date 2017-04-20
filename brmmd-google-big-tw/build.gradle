@@ -65,6 +65,15 @@ android {
             versionCode 20001
             versionName '2.0.1'
         }
+
+        brmmd_mrmmd {
+            applicationId 'com.star.mrmmd.tw'
+            signingConfig signingConfigs.brmmdsign
+            minSdkVersion 11
+            targetSdkVersion 22
+            versionCode 20001
+            versionName '2.0.1'
+        }
     }
 }
 

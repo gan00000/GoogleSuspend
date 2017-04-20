@@ -20,6 +20,7 @@
 -->
 
 <resources>
-    <string name="app_name">別惹萌萌噠-萌物歸來</string>
-    
+    <!--<string name="app_name">別惹萌萌噠-萌物歸來</string>-->
+    <string name="app_name">別惹萌萌噠</string>
+
 </resources>
